@@ -1,0 +1,11 @@
+{
+  "feature_set": "genres+tags+decade",
+  "popularity_weight": 1.0,
+  "profile_mode": "centered",
+  "use_decade": true,
+  "use_genre": true,
+  "use_tag": true,
+  "w_decade": 0.3,
+  "w_genre": 1.0,
+  "w_tag": 0.0
+}

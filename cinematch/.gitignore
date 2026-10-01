@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+.ipynb_checkpoints/
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*.parquet
+CineMatch_Recommendation_System_Pipeline.pdf
+*.pbix.bak
+.DS_Store
