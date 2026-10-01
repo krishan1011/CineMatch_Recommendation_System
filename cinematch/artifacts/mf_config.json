@@ -1,0 +1,22 @@
+{
+  "mf_ndcg": {
+    "best_epoch": 15,
+    "epochs": 60,
+    "init_std": 0.05,
+    "lr": 0.01,
+    "n_factors": 64,
+    "patience": 4,
+    "reg": 0.01,
+    "seed": 42
+  },
+  "mf_rmse": {
+    "best_epoch": 25,
+    "epochs": 60,
+    "init_std": 0.01,
+    "lr": 0.01,
+    "n_factors": 128,
+    "patience": 4,
+    "reg": 0.01,
+    "seed": 42
+  }
+}
