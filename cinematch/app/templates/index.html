@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#142a35">
+	<title>CineMatch | Movie discovery</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<header class="site-header">
+		<div class="container app-shell py-4 py-md-5">
+			<div class="brand-line">
+				<span class="brand-mark" aria-hidden="true">C</span>
+				<div>
+					<h1 class="brand-title">CineMatch</h1>
+					<p class="brand-tagline mb-0">Find the next film that feels like yours.</p>
+				</div>
+			</div>
+			<div class="header-rule" aria-hidden="true"></div>
+		</div>
+	</header>
+
+	<main class="container app-shell pb-5">
+		<div id="globalStatus" class="status-line" role="status" aria-live="polite"></div>
+		<div id="globalError" class="alert alert-danger d-none" role="alert"></div>
+
+		<ul class="nav nav-tabs app-tabs" id="discoveryTabs" role="tablist">
+			<li class="nav-item" role="presentation"><button class="nav-link active" id="search-tab" data-bs-toggle="tab" data-bs-target="#search-pane" type="button" role="tab">Search</button></li>
+			<li class="nav-item" role="presentation"><button class="nav-link" id="similar-tab" data-bs-toggle="tab" data-bs-target="#similar-pane" type="button" role="tab">Similar movies</button></li>
+			<li class="nav-item" role="presentation"><button class="nav-link" id="user-tab" data-bs-toggle="tab" data-bs-target="#user-pane" type="button" role="tab">For a MovieLens user</button></li>
+			<li class="nav-item" role="presentation"><button class="nav-link" id="discover-tab" data-bs-toggle="tab" data-bs-target="#discover-pane" type="button" role="tab">Rate and discover</button></li>
+		</ul>
+
+		<div class="tab-content content-area" id="discoveryTabContent">
+			<section class="tab-pane fade show active" id="search-pane" role="tabpanel" aria-labelledby="search-tab" tabindex="0">
+				<div class="section-heading">
+					<div><p class="eyebrow">CATALOG</p><h2>Find a movie</h2></div>
+					<p class="section-note">Search titles, then branch into nearby picks.</p>
+				</div>
+				<div class="autocomplete-wrap">
+					<label class="form-label" for="searchInput">Movie title</label>
+					<input id="searchInput" class="form-control form-control-lg" type="search" placeholder="Try Toy Story" autocomplete="off">
+					<div id="searchSuggestions" class="suggestions d-none"></div>
+				</div>
+				<div id="selectedMovie" class="selected-movie mt-4"></div>
+				<div id="searchResults" class="movie-grid mt-4"></div>
+			</section>
+
+			<section class="tab-pane fade" id="similar-pane" role="tabpanel" aria-labelledby="similar-tab" tabindex="0">
+				<div class="section-heading"><div><p class="eyebrow">ITEM NEIGHBORHOOD</p><h2>Similar movies</h2></div><p class="section-note">Start with a title you already like.</p></div>
+				<div class="autocomplete-wrap">
+					<label class="form-label" for="similarInput">Movie title</label>
+					<input id="similarInput" class="form-control form-control-lg" type="search" placeholder="Search the catalog" autocomplete="off">
+					<div id="similarSuggestions" class="suggestions d-none"></div>
+				</div>
+				<div id="similarSelected" class="selected-movie mt-3"></div>
+				<button id="similarButton" class="btn btn-dark mt-3" type="button" disabled>Find similar</button>
+				<div id="similarResults" class="movie-grid mt-4"></div>
+			</section>
+
+			<section class="tab-pane fade" id="user-pane" role="tabpanel" aria-labelledby="user-tab" tabindex="0">
+				<div class="section-heading"><div><p class="eyebrow">MOVIELENS HISTORY</p><h2>Your recommendations</h2></div><p class="section-note">Use a MovieLens user ID from 1 to 610.</p></div>
+				<div class="user-form">
+					<label class="form-label" for="userIdInput">User ID</label>
+					<div class="input-group input-group-lg">
+						<input id="userIdInput" class="form-control" type="number" min="1" max="610" value="1">
+						<button id="userRecommendButton" class="btn btn-dark" type="button">Recommend</button>
+					</div>
+				</div>
+				<div id="userResults" class="movie-grid mt-4"></div>
+			</section>
+
+			<section class="tab-pane fade" id="discover-pane" role="tabpanel" aria-labelledby="discover-tab" tabindex="0">
+				<div class="section-heading"><div><p class="eyebrow">NEW PROFILE</p><h2>Rate and discover</h2></div><p class="section-note">Pick at least five titles to shape your first list.</p></div>
+				<div class="onboarding-toolbar">
+					<div><span class="rated-count" id="ratedCount">0</span><span class="section-note ms-2">of 5 ratings added</span></div>
+					<button id="newRecommendButton" class="btn btn-dark" type="button" disabled>Get recommendations</button>
+				</div>
+				<div class="autocomplete-wrap mt-3">
+					<label class="form-label" for="rateSearchInput">Add a movie</label>
+					<input id="rateSearchInput" class="form-control" type="search" placeholder="Search for another title" autocomplete="off">
+					<div id="rateSuggestions" class="suggestions d-none"></div>
+				</div>
+				<div id="ratingList" class="rating-list mt-4"></div>
+				<div class="section-heading compact-heading"><div><p class="eyebrow">POPULAR STARTING POINTS</p><h3>Choose a few you know</h3></div></div>
+				<div id="popularResults" class="movie-grid"></div>
+				<div id="newUserResults" class="movie-grid mt-4"></div>
+			</section>
+		</div>
+		<footer class="app-footer">CineMatch <span aria-hidden="true">/</span> MovieLens discovery</footer>
+	</main>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
