@@ -174,8 +174,9 @@ def internal_error(_error):
 
 
 if __name__ == "__main__":
+	port = int(os.environ.get("PORT", "5000"))
 	app.run(
-		host="127.0.0.1",
-		port=5000,
+		host="0.0.0.0" if "PORT" in os.environ else "127.0.0.1",
+		port=port,
 		debug=os.environ.get("FLASK_DEBUG") == "1",
 	)

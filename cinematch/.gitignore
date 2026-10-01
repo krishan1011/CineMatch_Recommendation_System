@@ -4,6 +4,8 @@ __pycache__/
 data/raw/*
 !data/raw/.gitkeep
 data/processed/*.parquet
+!data/processed/movies.parquet
+!data/processed/movie_stats.parquet
 CineMatch_Recommendation_System_Pipeline.pdf
 *.pbix.bak
 .DS_Store

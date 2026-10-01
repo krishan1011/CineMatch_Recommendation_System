@@ -8,6 +8,7 @@ from .config import DATA_RAW, TEST_FRAC, VAL_FRAC
 
 
 def load_raw():
+    """Load MovieLens ratings, movies, tags, and links from the raw data folder."""
     raw_dir = DATA_RAW if DATA_RAW.exists() else DATA_RAW.parent
     ratings = pd.read_csv(raw_dir / "ratings.csv")
     movies = pd.read_csv(raw_dir / "movies.csv")
