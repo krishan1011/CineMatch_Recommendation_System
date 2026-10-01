@@ -1,0 +1,14 @@
+model,label,is_hybrid
+random,Random,False
+popularity_count,Popularity (count),False
+popularity_bayes,Popularity (Bayesian),False
+bias,Bias baseline,False
+content,Content-based,False
+item_knn,Item-kNN,False
+user_knn,User-kNN,False
+item_knn_implicit,Item-kNN (implicit),False
+user_knn_implicit,User-kNN (implicit),False
+mf,Matrix Factorization (RMSE),False
+mf_ndcg,Matrix Factorization (ranking),False
+hybrid,Hybrid recommender,True
+hybrid_stack,Hybrid rating stack,True
