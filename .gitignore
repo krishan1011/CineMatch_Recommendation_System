@@ -1,11 +1,65 @@
+# =========================
+# Python virtual environment
+# =========================
+.venv/
 venv/
+env/
+ENV/
+
+# =========================
+# Python cache
+# =========================
 __pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Jupyter Notebook
+# =========================
 .ipynb_checkpoints/
-data/raw/*
-!data/raw/.gitkeep
-data/processed/*.parquet
-!data/processed/movies.parquet
-!data/processed/movie_stats.parquet
-CineMatch_Recommendation_System_Pipeline.pdf
-*.pbix.bak
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# OS generated files
+# =========================
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Python build files
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# Test / coverage cache
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.temp
+*.bak
