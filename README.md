@@ -1,11 +1,9 @@
 # CineMatch: hybrid movie recommender (content + collaborative + matrix factorization) with live demo
 
 ## 1. Demo
-Live demo: <ADD URL AFTER DEPLOY>
+Live demo: https://cinematch-recommendation-system-p5v2.onrender.com/
 
-![CineMatch demo](docs/demo.gif)
-
-I will add the demo GIF after deployment.
+> Hosted on Render's free tier. The first load may take about a minute to wake up.
 
 ## 2. Results at a glance
 Final test results (best ranking NDCG@10: implicit Item-kNN; best rating RMSE: Ridge hybrid stack):
